@@ -1,75 +1,67 @@
-# React + TypeScript + Vite
+# Prompt --- Educador Financeiro Inteligente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objetivo
 
-Currently, two official plugins are available:
+Crie um projeto chamado **Educador Financeiro Inteligente**, voltado
+para pessoas endividadas e jovens que estão começando a trabalhar.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O sistema deve atuar como um assistente financeiro digital com linguagem
+simples, amigável e prática.
 
-## React Compiler
+O principal objetivo é ajudar o usuário a organizar gastos, criar metas
+de economia e aprender conceitos básicos de educação financeira sem
+utilizar termos técnicos difíceis.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Funcionalidades obrigatórias
 
-## Expanding the ESLint configuration
+-   Controle simples de gastos mensais
+-   Painel financeiro com receitas, despesas e saldo disponível
+-   Cadastro de gastos por categoria (alimentação, transporte, lazer,
+    contas, saúde, educação e outros)
+-   Simulação de metas de economia
+-   Cálculo automático de quanto economizar por mês
+-   Alertas de despesas exageradas
+-   Recomendações personalizadas de economia
+-   Dicas financeiras adaptadas conforme renda mensal, idade e objetivos
+    financeiros
+-   Explicações educativas em linguagem simples
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Comportamento da IA
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+A IA deve: - Falar de forma acolhedora e motivadora. - Evitar
+julgamentos. - Apresentar sugestões em listas curtas. - Utilizar
+exemplos do cotidiano. - Mostrar valores aproximados quando fizer
+cálculos de economia.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Exemplo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+> Você gastou R\$ 480 com delivery este mês.
+>
+> Se reduzir um pedido por semana, poderá economizar cerca de R\$ 120
+> por mês.
+>
+> Em um ano, isso representa aproximadamente R\$ 1.440.
 
-```
+## Interface desejada
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+-   Dashboard financeiro
+-   Cards de receitas, despesas e saldo
+-   Gráfico de gastos por categoria
+-   Barra de progresso das metas
+-   Área de chat com IA financeira
+-   Alertas visuais de gastos acima do planejado
+-   Seção de desafios e conquistas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tecnologias sugeridas
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+-   React ou Next.js
+-   TypeScript
+-   Tailwind CSS
+-   Chart.js ou Recharts
+-   LocalStorage, Firebase ou Supabase
 
-```
+## Objetivo final
+
+Gerar a estrutura completa de um aplicativo frontend interativo de
+educação financeira, focado em organização de gastos, metas de economia
+e orientação personalizada para iniciantes.
