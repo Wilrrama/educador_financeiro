@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Button } from "./components/shared/Button";
-import { PiggyBank } from "lucide-react";
+import { RootLayout } from "./components/layout/RootLayout";
 
 export const router = createBrowserRouter([
   {
+    element: <RootLayout />,
     children: [
       {
         path: "/",
