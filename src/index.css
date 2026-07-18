@@ -12,8 +12,7 @@
     height: 100%;
     transition:
       backgound-color 0.3s ease,
-      color 0,
-      3s ease;
+      color 0.3s ease;
   }
 }
 
