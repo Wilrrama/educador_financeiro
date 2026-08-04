@@ -1,8 +1,10 @@
 import { ArrowLeft, ArrowRight, type LucideIcon } from "lucide-react";
 import { Input, type InputProps } from "../../shared/Input";
 import { Button } from "../../shared/Button";
+import { useState, type SyntheticEvent } from "react";
 
-interface FormStepProps {
+export interface FormStepProps {
+  id: string;
   icon: LucideIcon;
   title: string;
   question: string;
@@ -13,13 +15,32 @@ interface FormStepProps {
   };
 }
 
+interface ActionsButtonsProps {
+  onBack: () => void;
+  onNext: () => void;
+  hideBackButton?: boolean;
+}
+
 export function FormStep({
   icon: Icon,
   title,
   question,
   inputProps,
   submitButtonProps,
-}: FormStepProps) {
+  hideBackButton,
+  onBack,
+  onNext,
+}: FormStepProps & ActionsButtonsProps) {
+  const [inputValue, setInputValue] = useState("");
+  const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!inputValue) {
+      return;
+    }
+
+    onNext();
+  };
   return (
     <div className="bg-card rounded-2x1 p-6 shadow-[4px_4px_18px_0px_rgba(0,0,0,0.2)] sm:p-8">
       <div className="bg-primary mb-4 flex h-15 w-15 items-center justify-center rounded-xl">
@@ -31,11 +52,15 @@ export function FormStep({
       <h3 className="text-foreground mb-6 text-xl leading-snug font-semibold sm:text-2xl">
         {question}
       </h3>
-      <form className="flex flex-col gap-4">
-        <Input {...inputProps} />
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <Input
+          {...inputProps}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
         <Button
           type="button"
-          //onClick={onBack}
+          onClick={onBack}
           variant="ghost"
           icon={ArrowLeft}
           className="order-2 flex-1 justify-center rounded-xl py-3 sm:order-1"
@@ -45,8 +70,8 @@ export function FormStep({
         <Button
           type="submit"
           variant="primary"
-          //icon={!submitButtonProps ? ArrowRight : undefined}
-          //disabled={!inputValue}
+          icon={!submitButtonProps ? ArrowRight : undefined}
+          disabled={!inputValue}
           className="order-1 flex-1 sm:order-2"
         >
           {submitButtonProps?.label ?? "Próximo"}
