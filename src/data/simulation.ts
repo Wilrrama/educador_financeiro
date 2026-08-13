@@ -10,6 +10,7 @@ import {
 //import type { InsightData } from "@/services/aiService";
 
 import type { FormStepProps } from "../components/features/Simulation/FormStep";
+import type { InsightData } from "../services/aiService";
 
 export const simulationFormSteps = [
   {
@@ -95,5 +96,5 @@ export type SimulationFormData = Record<
 
 export type SimulationRecord = SimulationFormData & {
   id: string;
-  
+  insight?: InsightData;
 };

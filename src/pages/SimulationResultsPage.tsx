@@ -12,21 +12,19 @@ import { PageHero } from "../components/shared/PageHero";
 import { calcMonthlySavings } from "../utils/simulation";
 import { useParams } from "react-router-dom";
 import { useSimulationStorage } from "../hooks/useSimulationStorage";
-
-
+import { AIInsightsCard } from "../components/features/SimulationResults/AIInsightCardProps";
 
 export function SimulationResultsPage() {
   const { id } = useParams<{ id: string }>();
 
   const { getFormData } = useSimulationStorage();
 
-    const data = id ? getFormData(id) : null;
+  const data = id ? getFormData(id) : null;
 
-      if (!data) {
-        return <p>Simulação não encontrada.</p>;
-      }
+  if (!data) {
+    return <p>Simulação não encontrada.</p>;
+  }
 
- 
   const monthlySavings = calcMonthlySavings(data);
 
   return (
@@ -58,7 +56,7 @@ export function SimulationResultsPage() {
       </div>
       <div className="grid gap-6 lg:grid-cols-3">
         <div>Painel de Insights</div>
-        {/* <AIInsightsCard simulationId={data.id} /> */}
+        <AIInsightsCard simulationId={data.id} />
         <div className="order-1 flex flex-col gap-6 lg:order-2">
           <Card
             icon={Wallet}
