@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Card } from "../components/features/SimulationResults/Card";
 import { PageHero } from "../components/shared/PageHero";
-// import type { SimulationFormData } from "../data/simulation";
+
 import { calcMonthlySavings } from "../utils/simulation";
 import { useParams } from "react-router-dom";
 import { useSimulationStorage } from "../hooks/useSimulationStorage";
@@ -55,7 +55,6 @@ export function SimulationResultsPage() {
         />
       </div>
       <div className="grid gap-6 lg:grid-cols-3">
-        <div>Painel de Insights</div>
         <AIInsightsCard simulationId={data.id} />
         <div className="order-1 flex flex-col gap-6 lg:order-2">
           <Card
