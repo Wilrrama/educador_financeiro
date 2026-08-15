@@ -85,7 +85,7 @@ export function FormStep({
             className="order-1 flex-1 sm:order-2"
           >
             {submitButtonProps?.label ?? "Próximo"}
-            {submitButtonProps?.emojiIcon ?? <ArrowRight size={16} />}
+            {submitButtonProps?.emojiIcon}
           </Button>
         </div>
       </form>
